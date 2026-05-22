@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>보험 × Agentic AI 주간 시장 인텔리전스 — 2026-05-22</title>
+<style>
+  :root {
+    --color-global: #0891b2;
+    --color-korea: #be185d;
+    --color-reg: #d97706;
+    --color-insight: #7c3aed;
+    --color-navy-start: #0f1f3d;
+    --color-navy-end: #1a2942;
+    --color-kpi-row: #0369a1;
+    --color-threat-row: #b91c1c;
+    --color-exec-row: #1f2937;
+    --color-action-row: #047857;
+    --color-badge-pos-bg: #ecfdf5;
+    --color-badge-pos-text: #047857;
+    --color-badge-neg-bg: #fef2f2;
+    --color-badge-neg-text: #b91c1c;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Pretendard",
+      "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", sans-serif;
+    background: #f1f5f9;
+    color: #1e293b;
+    line-height: 1.65;
+    font-size: 15px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--color-navy-start) 0%, var(--color-navy-end) 100%);
+    color: #fff;
+    padding: 52px 32px 44px;
+    text-align: center;
+  }
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin-bottom: 14px;
+  }
+  .hero-title {
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 10px;
+  }
+  .hero-subtitle {
+    font-size: 14px;
+    color: #cbd5e1;
+    margin-top: 8px;
+  }
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 22px;
+    flex-wrap: wrap;
+  }
+  .hero-meta span {
+    font-size: 12px;
+    color: #94a3b8;
+  }
+  .hero-meta strong { color: #e2e8f0; }
+
+  /* ── CONTAINER ── */
+  .container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 36px 22px 64px;
+  }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .section { margin-bottom: 44px; }
+
+  /* ── SUMMARY CARDS (핵심 3장) ── */
+  .summary-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .summary-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 22px 20px;
+    border: 1px solid #e2e8f0;
+    border-left: 5px solid;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .summary-card.global { border-left-color: var(--color-global); }
+  .summary-card.korea  { border-left-color: var(--color-korea); }
+  .summary-card.reg    { border-left-color: var(--color-reg); }
+  .card-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .card-tag.global { color: var(--color-global); }
+  .card-tag.korea  { color: var(--color-korea); }
+  .card-tag.reg    { color: var(--color-reg); }
+  .card-headline {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.45;
+    margin-bottom: 8px;
+    color: #0f172a;
+  }
+  .card-body { font-size: 13px; color: #475569; line-height: 1.6; }
+
+  /* ── GRID 2 ── */
+  .grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+
+  /* ── ITEM CARD ── */
+  .item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px 22px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .item:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+  }
+  .item-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 5px;
+    margin-bottom: 12px;
+  }
+  .item-tag.global { background: #e0f2fe; color: var(--color-global); }
+  .item-tag.korea  { background: #fce7f3; color: var(--color-korea); }
+  .item-tag.reg    { background: #fef3c7; color: var(--color-reg); }
+  .item-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  .item-body {
+    font-size: 13.5px;
+    color: #334155;
+    line-height: 1.7;
+    margin-bottom: 18px;
+  }
+
+  /* ── ABBREVIATION SUPERSCRIPT ── */
+  sup.abbr {
+    color: #7c3aed;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: help;
+  }
+
+  /* ── BUSINESS IMPACT BOX ── */
+  .impact-box {
+    border-radius: 9px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+  }
+  .impact-header {
+    background: #0f172a;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    padding: 9px 16px;
+  }
+  .impact-row {
+    padding: 11px 16px;
+    font-size: 13px;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .impact-row:last-child { border-bottom: none; }
+  .impact-row.kpi    { background: #eff6ff; }
+  .impact-row.threat { background: #fff5f5; }
+  .impact-row.exec   { background: #f8fafc; }
+  .impact-row.action { background: #f0fdf4; }
+  .impact-label {
+    font-size: 11px;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  .impact-row.kpi    .impact-label { color: var(--color-kpi-row); }
+  .impact-row.threat .impact-label { color: var(--color-threat-row); }
+  .impact-row.exec   .impact-label { color: var(--color-exec-row); }
+  .impact-row.action .impact-label { color: var(--color-action-row); }
+  .impact-content { color: #1e293b; line-height: 1.6; }
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 1px 9px;
+    border-radius: 12px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .badge.pos { background: var(--color-badge-pos-bg); color: var(--color-badge-pos-text); }
+  .badge.neg { background: var(--color-badge-neg-bg); color: var(--color-badge-neg-text); }
+  .impact-row ol {
+    margin: 6px 0 0 18px;
+    padding: 0;
+  }
+  .impact-row ol li {
+    font-size: 13px;
+    color: #1e293b;
+    margin-bottom: 3px;
+    line-height: 1.55;
+  }
+
+  /* ── INSIGHT GRID ── */
+  .insight-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+  .insight-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px 22px;
+    border: 1px solid #e2e8f0;
+    border-left: 5px solid var(--color-insight);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .insight-num {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--color-insight);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+  .insight-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .insight-body { font-size: 13.5px; color: #334155; line-height: 1.7; }
+
+  /* ── MONITORING BOX ── */
+  .monitor-box {
+    background: #fff;
+    border-radius: 12px;
+    padding: 6px 0;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .monitor-row {
+    display: flex;
+    gap: 16px;
+    padding: 12px 22px;
+    border-bottom: 1px solid #f1f5f9;
+    font-size: 13.5px;
+    align-items: flex-start;
+  }
+  .monitor-row:last-child { border-bottom: none; }
+  .monitor-label {
+    min-width: 110px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding-top: 3px;
+    flex-shrink: 0;
+  }
+  .monitor-content { color: #334155; line-height: 1.6; }
+
+  /* ── GLOSSARY BOX ── */
+  .glossary-box {
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    padding: 22px 26px;
+    background: #fafbfc;
+    margin-top: 44px;
+  }
+  .glossary-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 14px;
+  }
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px 24px;
+  }
+  .glossary-item {
+    font-size: 12px;
+    color: #475569;
+    line-height: 1.55;
+  }
+  .glossary-item strong { color: #7c3aed; }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 22px;
+    font-size: 11px;
+    color: #94a3b8;
+    border-top: 1px solid #e2e8f0;
+    margin-top: 24px;
+    line-height: 1.8;
+  }
+
+  /* ── STAT CHIP ── */
+  .stat-chip {
+    display: inline-block;
+    background: #f0fdf4;
+    color: #047857;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 20px;
+    margin: 2px 4px 2px 0;
+    border: 1px solid #bbf7d0;
+  }
+  .stat-chip.warn {
+    background: #fef2f2;
+    color: #b91c1c;
+    border-color: #fecaca;
+  }
+  .stat-chip.blue {
+    background: #eff6ff;
+    color: #1d4ed8;
+    border-color: #bfdbfe;
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 720px) {
+    .summary-cards  { grid-template-columns: 1fr; }
+    .grid2          { grid-template-columns: 1fr; }
+    .insight-grid   { grid-template-columns: 1fr; }
+    .glossary-grid  { grid-template-columns: 1fr 1fr; }
+    .hero-title     { font-size: 22px; }
+    .hero           { padding: 36px 18px 30px; }
+    .container      { padding: 22px 16px 44px; }
+    .monitor-label  { min-width: 90px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════
+     HERO HEADER
+════════════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-eyebrow">주간 시장 인텔리전스 · Weekly Market Intelligence</div>
+  <h1 class="hero-title">보험 × Agentic AI<br>시장 동향 리포트</h1>
+  <p class="hero-subtitle">글로벌·한국 보험산업과 에이전틱 AI 교차 영역의 핵심 시그널 — 실무 임팩트 분석 포함</p>
+  <div class="hero-meta">
+    <span>📅 <strong>발행일</strong> 2026-05-22 (KST)</span>
+    <span>📆 <strong>커버 기간</strong> 2026-05-15 ~ 2026-05-22</span>
+    <span>🌐 <strong>언어</strong> 한국어 + 영어 병행</span>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- ══════════════════════════════
+       이번 주 핵심 3장 카드
+  ══════════════════════════════ -->
+  <section class="section">
+    <div class="section-label">이번 주 핵심</div>
+    <div class="summary-cards">
+
+      <div class="summary-card global">
+        <div class="card-tag global">글로벌</div>
+        <div class="card-headline">FurtherAI, a16z 주도 $25M 시리즈 A — 보험 AI 스타트업 사상 최대 단일 라운드</div>
+        <div class="card-body">6개월 전 $5M 시드 대비 5배 성장. Pace도 Sequoia 주도 $10M 조달. 글로벌 자금이 보험 자동화로 집중 유입 중.</div>
+      </div>
+
+      <div class="summary-card korea">
+        <div class="card-tag korea">한국</div>
+        <div class="card-headline">DB손해보험, AI 에이전트 보상 전 프로세스 전면 확대 — 음성·다국어 포함</div>
+        <div class="card-body">삼성SDS 협력, 사고접수→보험금 지급 전 과정 AI 자동화. 외국인 전용 통역 AI(금융권 최초) 포함, 30분 이내 초기 안내 구현.</div>
+      </div>
+
+      <div class="summary-card reg">
+        <div class="card-tag reg">규제</div>
+        <div class="card-headline">EU AI Act 고위험 조항 시행 D-72 (2026-08-02) — 보험 AI 의무 컴플라이언스</div>
+        <div class="card-body">위반 시 최대 €3,500만 또는 전 세계 매출 7% 제재. 국내 금융위도 7대 원칙 AI 가이드라인 적용 중.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       글로벌 시그널
+  ══════════════════════════════ -->
+  <section class="section">
+    <div class="section-label">글로벌 시그널</div>
+    <div class="grid2">
+
+      <!-- ── 글로벌 1: FurtherAI + Pace ── -->
+      <div class="item">
+        <span class="item-tag global">글로벌 시그널 1</span>
+        <h2 class="item-title">FurtherAI $25M (a16z<sup class="abbr">①</sup>) · Pace $10M (Sequoia) — 보험 에이전틱 AI에 최정예 VC 집결</h2>
+        <div class="item-body">
+          FurtherAI가 Andreessen Horowitz(a16z<sup class="abbr">①</sup>)로부터 $25M 시리즈 A를 조달했다. 6개월 전 $5M 시드 라운드 이후 반년 만에 누적 $30M을 확보한 것으로, 보험 AI<sup class="abbr">②</sup> 스타트업 중 최대 규모 시리즈 A 중 하나다. FurtherAI는 보험사의 언더라이팅<sup class="abbr">③</sup>·청구 심사·규정 준수 문서 처리 등 반복 업무를 에이전틱 AI로 대체하는 데 집중한다.
+          <br><br>
+          같은 시기 Pace도 Sequoia Capital 주도 $10M 시리즈 A를 조달, 연간 $700억 규모 보험 BPO<sup class="abbr">④</sup> 시장을 정조준했다. Prudential·The Mutual Group·Newfront 등 주요 보험사가 고객사다. Q1 2026 글로벌 인슈어테크 투자 총액은 <span class="stat-chip">$9.43억</span>을 기록했다.
+          <br><br>
+          <span class="stat-chip">보험 AI 배포 YoY<sup class="abbr">⑤</sup> +87%</span>
+          <span class="stat-chip blue">에이전틱 AI 시장 2026년 $7.26B (전년 대비 +26%)</span>
+        </div>
+        <div class="impact-box">
+          <div class="impact-header">비즈니스 임팩트 분석</div>
+          <div class="impact-row kpi">
+            <div class="impact-label">🎯 KPI 임팩트</div>
+            <div class="impact-content">
+              <strong>손해율</strong><span class="badge pos">긍정</span>
+              — 에이전틱 클레임 자동화는 부정 청구(보험 사기) 탐지 정확도를 30% 이상 끌어올려 손해율을 직접 압박하는 요인으로 작용.
+            </div>
+          </div>
+          <div class="impact-row threat">
+            <div class="impact-label">⚖️ 기회/위협</div>
+            <div class="impact-content">
+              <strong>Opportunity</strong> — 국내 보험사가 동급 플랫폼을 선도 도입 시 언더라이팅<sup class="abbr">③</sup> 속도에서 경쟁사 대비 6개월 이상 선행 우위 확보 가능. 후발 주자는 투자비 증가+타이밍 손실 이중 부담.
+            </div>
+          </div>
+          <div class="impact-row exec">
+            <div class="impact-label">💼 경영진 번역</div>
+            <div class="impact-content">
+              글로벌 최정예 투자자가 보험 AI 워크플로 자동화에 집중 베팅한 것은 단기 비용 효율을 넘어 장기 시장 점유율 재편의 신호 — 지금이 투자 결정 시점.
+            </div>
+          </div>
+          <div class="impact-row action">
+            <div class="impact-label">🔥 다음 주 우선순위</div>
+            <div class="impact-content">
+              <ol>
+                <li>FurtherAI·Pace 플랫폼 PoC<sup class="abbr">⑥</sup> 기술 검토 및 국내 도입 타당성 분석</li>
+                <li>현재 언더라이팅·클레임 자동화 수준 벤치마크 기준값 측정</li>
+                <li>IT·보상·리스크관리 3개 부서 TF<sup class="abbr">⑦</sup> 구성 및 킥오프 일정 확정</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── 글로벌 2: Duck Creek / Hiscox ── -->
+      <div class="item">
+        <span class="item-tag global">글로벌 시그널 2</span>
+        <h2 class="item-title">Duck Creek Agentic AI Platform 출시 — Hiscox, 견적 사이클 3일→3분 (99.4% 단축) 실증</h2>
+        <div class="item-body">
+          Duck Creek Technologies가 2026년 4월 28일 보험 네이티브 에이전틱 AI 플랫폼을 공식 출시했다. 핵심은 Agentic Underwriting Workbench와 Agentic FNOL<sup class="abbr">⑧</sup>(최초 손해 통보) 모듈로, P&C<sup class="abbr">⑨</sup> 보험사의 핵심 워크플로를 멀티에이전트 구조로 자동화한다.
+          <br><br>
+          런던 마켓 특수보험사 Hiscox는 스페셜티 라인 견적 사이클을 3일에서 약 3분으로 압축, <strong>99.4% 단축</strong>을 달성했다. BCG는 미국 단독 기준 연간 $800억 임팩트를 전망했다. McKinsey 보고서에 따르면 인수 에이전트·리스크 프로파일링 에이전트·가격 책정 에이전트·컴플라이언스 에이전트가 협력하는 멀티에이전트 오케스트레이션 구조가 표준으로 부상 중이다.
+          <br><br>
+          <span class="stat-chip">STP<sup class="abbr">⑩</sup>율 10~15% → 70~90%</span>
+          <span class="stat-chip blue">클레임 처리 속도 75% 향상·비용 30~40% 절감 보고</span>
+        </div>
+        <div class="impact-box">
+          <div class="impact-header">비즈니스 임팩트 분석</div>
+          <div class="impact-row kpi">
+            <div class="impact-label">🎯 KPI 임팩트</div>
+            <div class="impact-content">
+              <strong>디지털 전환율</strong><span class="badge pos">긍정</span>
+              — STP<sup class="abbr">⑩</sup>율 10→90% 도약은 디지털 전환을 '실험 단계'에서 '생산 단계'로 점프시키는 핵심 전환 지표.
+            </div>
+          </div>
+          <div class="impact-row threat">
+            <div class="impact-label">⚖️ 기회/위협</div>
+            <div class="impact-content">
+              <strong>Threat</strong> — 글로벌 경쟁사가 이미 3분 견적을 구현하는 반면 국내 미도입 상태라면 고객 기대 수준과의 간극이 고객 이탈 가속화로 이어질 위험.
+            </div>
+          </div>
+          <div class="impact-row exec">
+            <div class="impact-label">💼 경영진 번역</div>
+            <div class="impact-content">
+              언더라이팅<sup class="abbr">③</sup> 속도 99.4% 개선은 단순 비용 효율이 아닌 매출 차별화 수단 — 고객 응답 속도가 계약 성사율을 직접 좌우한다.
+            </div>
+          </div>
+          <div class="impact-row action">
+            <div class="impact-label">🔥 다음 주 우선순위</div>
+            <div class="impact-content">
+              <ol>
+                <li>현재 언더라이팅<sup class="abbr">③</sup> 견적 사이클 소요 시간 측정 및 목표치 재정의</li>
+                <li>Duck Creek 또는 유사 에이전틱 플랫폼 국내 파트너사·대리점 파악</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       한국 동향
+  ══════════════════════════════ -->
+  <section class="section">
+    <div class="section-label">한국 동향</div>
+    <div class="grid2">
+
+      <!-- ── 한국 1: DB손보 ── -->
+      <div class="item">
+        <span class="item-tag korea">한국 동향 1</span>
+        <h2 class="item-title">DB손해보험, AI 에이전트 보상 시스템 전면 확대 — 금융권 최초 '다국인 통역 AI' 포함</h2>
+        <div class="item-body">
+          DB손해보험이 2026년을 "AI 전환 원년"으로 선언하고 보상 프로세스 전반에 AI 에이전트를 이식했다. 삼성SDS와 공동 개발한 이 시스템은 STT<sup class="abbr">⑪</sup>(음성→텍스트)·TTS<sup class="abbr">⑫</sup>(텍스트→음성) 기술 기반으로 사고 접수 후 <strong>30분 이내</strong> 고객에게 초기 안내를 자동 제공한다.
+          <br><br>
+          외국인 고객 전용 '다국인 통역 AI 에이전트'도 운영 중(금융권 최초)이며, 보험금 청구를 지원하는 별도 AI 에이전트도 투입해 보험금 수령 소요 시간을 단축하고 있다. 한국경제 보도(2026-05-19)에 따르면 사고 접수·언어 통역·과실 판단 영역 모두에 AI 에이전트가 이식됐다. 국내 주요 손해보험사 중 AI 에이전트 적용 범위 선두를 유지하고 있다.
+        </div>
+        <div class="impact-box">
+          <div class="impact-header">비즈니스 임팩트 분석</div>
+          <div class="impact-row kpi">
+            <div class="impact-label">🎯 KPI 임팩트</div>
+            <div class="impact-content">
+              <strong>고객 이탈률</strong><span class="badge pos">긍정</span>
+              — 사고 접수 후 30분 이내 즉시 응대는 보상 불만족으로 인한 고객 이탈을 차단하는 가장 직접적인 개입 지점.
+            </div>
+          </div>
+          <div class="impact-row threat">
+            <div class="impact-label">⚖️ 기회/위협</div>
+            <div class="impact-content">
+              <strong>Opportunity</strong> — DB손보가 선점한 보상 AI 경험은 타 손해보험사 대비 브랜드 신뢰도와 갱신율 차별화 요소로 누적되는 중.
+            </div>
+          </div>
+          <div class="impact-row exec">
+            <div class="impact-label">💼 경영진 번역</div>
+            <div class="impact-content">
+              고객 보상 경험 자동화는 콜센터 인력 비용 절감과 고객 만족도 제고를 동시에 달성 — 리스크 회피와 비용 효율의 이중 효과.
+            </div>
+          </div>
+          <div class="impact-row action">
+            <div class="impact-label">🔥 다음 주 우선순위</div>
+            <div class="impact-content">
+              <ol>
+                <li>자사 보상 접수 후 고객 첫 응대 시간 기준값 측정 및 DB손보 대비 격차 분석</li>
+                <li>DB손보 사례 벤치마킹 포인트 3개 이상 추출, 단기 도입 후보 선별</li>
+                <li>외국인 고객 규모 파악 및 다국어 AI 통역 에이전트 도입 ROI 사전 검토</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── 한국 2: 신한라이프 LICO + 한화생명 ── -->
+      <div class="item">
+        <span class="item-tag korea">한국 동향 2</span>
+        <h2 class="item-title">신한라이프 'LICO' + 한화생명 AI 보조 서비스 — 설계사 건강보험 판매 실적 40% 실증 향상</h2>
+        <div class="item-body">
+          신한라이프는 생성형 AI 에이전트로 상품정보관리시스템을 자동화하고, 고객 정보·설계 패턴을 분석해 실시간 가입설계를 추천하는 <strong>LICO(Life Copilot)</strong> 시스템을 업계 최초로 오픈했다. AI 에이전트가 상품 문서 선별→텍스트·표 구조화→속성 추출→상품 코드 매핑까지 전 과정을 자율 처리한다.
+          <br><br>
+          한화생명은 AI 번역·상담 보조 서비스를 활용한 설계사들의 건강보험 <strong>월 평균 판매 실적이 비사용자 대비 40% 이상</strong> 높게 나타났다고 공개했다. 카카오페이손보도 자체 개발 Document AI<sup class="abbr">②</sup>를 가입·보상 전 프로세스에 적용해 보험금 즉시 지급 서비스를 구현, 글로벌 보험 혁신 어워드 수상(2025)으로 기술력을 공인받았다.
+          <br><br>
+          <span class="stat-chip">AI 보조 설계사 판매 실적 +40%</span>
+        </div>
+        <div class="impact-box">
+          <div class="impact-header">비즈니스 임팩트 분석</div>
+          <div class="impact-row kpi">
+            <div class="impact-label">🎯 KPI 임팩트</div>
+            <div class="impact-content">
+              <strong>설계사 생산성</strong><span class="badge pos">긍정</span>
+              — AI 보조 사용 설계사 YoY<sup class="abbr">⑤</sup> 40% 판매 실적 향상은 비사용 설계사와의 격차 확대를 의미하며, 이탈 유인 제거와 직결.
+            </div>
+          </div>
+          <div class="impact-row threat">
+            <div class="impact-label">⚖️ 기회/위협</div>
+            <div class="impact-content">
+              <strong>Opportunity</strong> — AI 도구 보급률이 낮은 경쟁사 대비 설계사 리텐션·스카우트 경쟁에서 우위. 설계사 AI 활용 격차가 판매 격차로 직결.
+            </div>
+          </div>
+          <div class="impact-row exec">
+            <div class="impact-label">💼 경영진 번역</div>
+            <div class="impact-content">
+              설계사 1인당 생산성 40% 향상은 신규 설계사 40% 추가 채용 효과와 동일 — AI 투자 비용이 훨씬 낮으므로 매출 차별화 대비 투입 대비 수익(ROI)이 월등함.
+            </div>
+          </div>
+          <div class="impact-row action">
+            <div class="impact-label">🔥 다음 주 우선순위</div>
+            <div class="impact-content">
+              <ol>
+                <li>자사 설계사 AI 도구 현황 조사 및 실제 활용률·생산성 지표 측정</li>
+                <li>LICO형 가입설계 추천 AI 도입 로드맵 초안 작성 및 IT 검토 의뢰</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       규제 핵심
+  ══════════════════════════════ -->
+  <section class="section">
+    <div class="section-label">규제 핵심</div>
+    <div class="grid2">
+
+      <!-- ── 규제 1: 금융위 ── -->
+      <div class="item">
+        <span class="item-tag reg">규제 핵심 1 · 한국</span>
+        <h2 class="item-title">금융위 '금융분야 AI 가이드라인' 7대 원칙 시행 + AI 기본법 — 보험사 이중 규제 의무 발생</h2>
+        <div class="item-body">
+          금융위원회가 생성형 AI·AI 기본법 시행을 반영한 개정 가이드라인을 발표했다. 7대 원칙은 ①거버넌스 ②합법성 ③보조적 기능 ④신뢰성 ⑤금융 안정성 ⑥선의성 ⑦보안으로 구성되며, 2026년 Q1부터 적용되고 있다.
+          <br><br>
+          보험 언더라이팅<sup class="abbr">③</sup>·신용 평가에 사용되는 AI는 '고영향 AI'로 분류돼 금융위 가이드라인과 AI 기본법을 동시에 충족해야 한다. 금융분야 AI 리스크 실시간 모니터링 체계는 2026년 Q4 도입 예정이다.
+          <br><br>
+          <span class="stat-chip warn">컴플라이언스 준비 기간 추가 3~6개월 필요</span>
+        </div>
+        <div class="impact-box">
+          <div class="impact-header">비즈니스 임팩트 분석</div>
+          <div class="impact-row kpi">
+            <div class="impact-label">🎯 KPI 임팩트</div>
+            <div class="impact-content">
+              <strong>디지털 전환율</strong><span class="badge neg">부정</span>
+              — 규정 충족 전 AI 배포 불가 원칙으로 디지털 전환 속도에 제동, 컴플라이언스 준비 기간 3~6개월 추가 소요 예상.
+            </div>
+          </div>
+          <div class="impact-row threat">
+            <div class="impact-label">⚖️ 기회/위협</div>
+            <div class="impact-content">
+              <strong>Threat</strong> — 규제 준비 부족 시 AI 도입이 경쟁사보다 지연되고, 동시에 과태료·업무 정지 리스크까지 이중 부담. 선제 대응 기업이 '규제 우호적 환경'을 선점.
+            </div>
+          </div>
+          <div class="impact-row exec">
+            <div class="impact-label">💼 경영진 번역</div>
+            <div class="impact-content">
+              규제 준수 비용은 단기 부담이지만, 비준수는 AI 서비스 전면 중단 리스크 — 리스크 회피 차원의 선제적 거버넌스 투자가 합리적 선택.
+            </div>
+          </div>
+          <div class="impact-row action">
+            <div class="impact-label">🔥 다음 주 우선순위</div>
+            <div class="impact-content">
+              <ol>
+                <li>현재 운영 중인 모든 AI 모델을 7대 원칙 기준으로 전수 점검</li>
+                <li>법무·컴플라이언스팀과 AI 기본법 이중 의무 체크리스트 작성</li>
+                <li>Q4 실시간 모니터링 체계 도입 전 내부 인프라 요건 사전 파악</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── 규제 2: EU AI Act + NAIC ── -->
+      <div class="item">
+        <span class="item-tag reg">규제 핵심 2 · 글로벌</span>
+        <h2 class="item-title">EU AI Act D-72 (2026-08-02) + NAIC<sup class="abbr">⑬</sup> 12개주 파일럿 — 글로벌 이중 규제 압박 본격화</h2>
+        <div class="item-body">
+          EU AI Act 고위험 조항이 2026년 8월 2일 발효된다. 보험 언더라이팅<sup class="abbr">③</sup>·리스크 평가·가격 책정에 사용되는 AI는 고위험으로 분류돼 투명성·감사 추적(audit trail<sup class="abbr">⑭</sup>)·인간 감독 의무가 부과된다. 위반 시 <strong>최대 €3,500만 또는 전 세계 매출 7%</strong> 과징금.
+          <br><br>
+          미국에서는 NAIC<sup class="abbr">⑬</sup>가 12개 주 대상 AI 평가 도구 파일럿을 2026년 1~9월 운영 중이며, 2026 가을 정기회의에서 전면 채택이 예상된다. Colorado AI Act는 2026년 6월 시행 예정이다. 다국 운영 보험사는 EU·미국 이중 규제 요건을 동시에 충족해야 해 컴플라이언스 복잡도가 급상승하고 있다.
+          <br><br>
+          <span class="stat-chip warn">EU 발효 D-72일 (2026-08-02)</span>
+          <span class="stat-chip warn">Colorado AI Act 2026-06 시행</span>
+        </div>
+        <div class="impact-box">
+          <div class="impact-header">비즈니스 임팩트 분석</div>
+          <div class="impact-row kpi">
+            <div class="impact-label">🎯 KPI 임팩트</div>
+            <div class="impact-content">
+              <strong>손해율</strong><span class="badge neg">부정</span>
+              — 컴플라이언스 운영 비용 증가로 단기 손익 압박. AI 자동화 배포 지연 시 수동 처리 오류로 인한 손해율 악화 가능성 병존.
+            </div>
+          </div>
+          <div class="impact-row threat">
+            <div class="impact-label">⚖️ 기회/위협</div>
+            <div class="impact-content">
+              <strong>Threat</strong> — EU·미국 이중 규제 준수 불이행 시 해당 시장에서 AI 기반 보험 서비스 제공 자체가 차단될 수 있음. 동시에 선제 준수는 규제 우호 기업 이미지 확보.
+            </div>
+          </div>
+          <div class="impact-row exec">
+            <div class="impact-label">💼 경영진 번역</div>
+            <div class="impact-content">
+              D-72일은 더 이상 준비를 늦출 수 없는 시점 — 8월 2일 이전 EU 시장에서 AI 보험 서비스를 유지하려면 지금 당장 컴플라이언스 로드맵을 확정해야 함.
+            </div>
+          </div>
+          <div class="impact-row action">
+            <div class="impact-label">🔥 다음 주 우선순위</div>
+            <div class="impact-content">
+              <ol>
+                <li>EU·미국 시장 AI 서비스 목록 파악 및 고위험 AI 분류 목록 작성</li>
+                <li>EU AI Act 컴플라이언스 전문 법률 자문사 긴급 접촉 및 일정 확보</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       종합 인사이트
+  ══════════════════════════════ -->
+  <section class="section">
+    <div class="section-label">종합 인사이트</div>
+    <div class="insight-grid">
+
+      <div class="insight-card">
+        <div class="insight-num">1</div>
+        <div class="insight-title">"파일럿에서 프로덕션으로" — 국내외 동시에 실험 단계가 종료됐다</div>
+        <div class="insight-body">
+          글로벌 보험사 65%가 2026년 내 AI 에이전트 프로덕션 배포를 계획하고 있으며, STP<sup class="abbr">⑩</sup>율 70~90% 사례가 현실화되고 있다. 국내에서도 DB손보·신한라이프·한화생명이 PoC<sup class="abbr">⑥</sup>를 넘어 실제 고객 접점에 AI 에이전트를 배치하기 시작했다. 이제 "AI 도입 여부"가 아닌 "얼마나 빠르게 전면 확대할 것인가"가 경쟁의 핵심 질문이 됐다.
+        </div>
+      </div>
+
+      <div class="insight-card">
+        <div class="insight-num">2</div>
+        <div class="insight-title">투자 자금과 규제가 동시 가속화 — "선제적 거버넌스"가 신규 경쟁 우위</div>
+        <div class="insight-body">
+          a16z·Sequoia 등 최정예 VC가 보험 AI에 뭉칫돈을 투입하는 동시에, EU AI Act·NAIC·금융위가 규제 프레임을 동시다발로 강화하고 있다. 이 교차점에서 가장 유리한 포지션은 컴플라이언스를 비용이 아닌 "신뢰 기반 시장 점유율 차별화"로 전환하는 기업이다. 규제 준비가 앞선 보험사가 고위험 AI 서비스 시장을 먼저 선점한다.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       모니터링 후보
+  ══════════════════════════════ -->
+  <section class="section">
+    <div class="section-label">모니터링 후보</div>
+    <div class="monitor-box">
+      <div class="monitor-row">
+        <div class="monitor-label">국내 보험사</div>
+        <div class="monitor-content">삼성화재 (사이버보험 + AI 보상 자동화 로드맵 발표 예정) · 교보생명 (생성형 AI 고객 상담 검토) · KB손해보험 (AI 심사 자동화 내부 TF<sup class="abbr">⑦</sup> 가동 중)</div>
+      </div>
+      <div class="monitor-row">
+        <div class="monitor-label">국내 스타트업</div>
+        <div class="monitor-content">보닥 (AI 보험 추천 고도화) · 해빗팩토리 (보험 최적화 AI) · 카카오페이손보 (Document AI<sup class="abbr">②</sup> 즉시 지급 확대) · 볼트테크코리아 (임베디드 보험 플랫폼)</div>
+      </div>
+      <div class="monitor-row">
+        <div class="monitor-label">글로벌</div>
+        <div class="monitor-content">FurtherAI (a16z 주도 $25M, 워크플로 자동화) · Pace (Sequoia $10M, 보험 BPO<sup class="abbr">④</sup> 대체) · Duck Creek Agentic Platform (언더라이팅<sup class="abbr">③</sup>·FNOL<sup class="abbr">⑧</sup>) · Roots AI (멀티에이전트 오케스트레이션)</div>
+      </div>
+      <div class="monitor-row">
+        <div class="monitor-label">핵심 키워드</div>
+        <div class="monitor-content">FNOL<sup class="abbr">⑧</sup> 자동화 · 멀티에이전트 오케스트레이션 · STP<sup class="abbr">⑩</sup> 자동화율 향상 · 설계사 AI 보조 생산성 · 보험 LLM<sup class="abbr">⑮</sup> 파인튜닝 · audit trail<sup class="abbr">⑭</sup> 자동화</div>
+      </div>
+      <div class="monitor-row">
+        <div class="monitor-label">규제 캘린더</div>
+        <div class="monitor-content">2026-06 Colorado AI Act 시행 · 2026-08-02 EU AI Act 고위험 조항 발효 (D-72) · 2026-09 NAIC<sup class="abbr">⑬</sup> AI 평가 도구 파일럿 종료 · 2026-Q4 금융위 AI 리스크 실시간 모니터링 체계 도입</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
+       용어·약어 풀이
+  ══════════════════════════════ -->
+  <div class="glossary-box">
+    <div class="glossary-title">용어·약어 풀이</div>
+    <div class="glossary-grid">
+      <div class="glossary-item"><strong>① a16z</strong> — Andreessen Horowitz (미국 벤처캐피탈)</div>
+      <div class="glossary-item"><strong>② Document AI</strong> — 문서 처리 특화 AI 모듈</div>
+      <div class="glossary-item"><strong>③ 언더라이팅</strong> — Underwriting (보험 인수·심사)</div>
+      <div class="glossary-item"><strong>④ BPO</strong> — Business Process Outsourcing (업무 프로세스 외주)</div>
+      <div class="glossary-item"><strong>⑤ YoY</strong> — Year-over-Year (전년 동기 대비)</div>
+      <div class="glossary-item"><strong>⑥ PoC</strong> — Proof of Concept (개념 실증)</div>
+      <div class="glossary-item"><strong>⑦ TF</strong> — Task Force (전담 태스크포스)</div>
+      <div class="glossary-item"><strong>⑧ FNOL</strong> — First Notice of Loss (최초 손해 통보)</div>
+      <div class="glossary-item"><strong>⑨ P&amp;C</strong> — Property &amp; Casualty (손해보험)</div>
+      <div class="glossary-item"><strong>⑩ STP</strong> — Straight-Through Processing (무인 자동 처리)</div>
+      <div class="glossary-item"><strong>⑪ STT</strong> — Speech-To-Text (음성 → 텍스트 변환)</div>
+      <div class="glossary-item"><strong>⑫ TTS</strong> — Text-To-Speech (텍스트 → 음성 변환)</div>
+      <div class="glossary-item"><strong>⑬ NAIC</strong> — National Association of Insurance Commissioners (미국 보험청장협회)</div>
+      <div class="glossary-item"><strong>⑭ audit trail</strong> — 감사 추적 (AI 의사결정 근거 로그)</div>
+      <div class="glossary-item"><strong>⑮ LLM</strong> — Large Language Model (대형 언어 모델)</div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  보험 × Agentic AI 주간 시장 인텔리전스 · 발행일 2026-05-22 (KST) · 커버 기간 2026-05-15 ~ 2026-05-22<br>
+  본 리포트는 공개 뉴스·보도자료·연구 보고서를 기반으로 자동 생성되었습니다. 투자·법적 조언이 아닙니다.
+</footer>
+
+</body>
+</html>
